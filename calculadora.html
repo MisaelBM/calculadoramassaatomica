@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de massa atômica</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            background-color: gray;
+        }
+        .visor {
+            padding: 5px;
+            border: 2px solid black;
+            height: 80px;
+            border-radius: 15px;
+            background-color: rgb(209, 209, 209);
+            overflow: auto;
+            text-align: end;
+        }
+        .btns-container {
+            margin-top: 1rem;
+            background-color: rgb(182, 180, 180);
+            border-radius: 15px;
+            padding: 10px;
+            min-height: 180px;
+            padding-right: 75px;
+        }
+        .key-action-container {
+            position: absolute;
+            right: 0;
+            margin-right: 20px;
+        }
+        .key-action {
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            display: block;      
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .not-metals {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(179,215,107);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+        .noble-gases {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(102,177,222);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+        .alkali-metals {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(246,201,96);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+            
+        }
+        .alkali-earth-metals {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(239,229,91);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+            
+        }
+        .semimetals {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(109,197,188);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+        .halogens {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(168,224,244);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+        .other-metals {
+            width: 65px;
+            height: 60px;
+            font-size: 10px;   
+            background-color: rgb(163,199,212);
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="visor" id="visor"></div>
+</section>
+<section>
+    <div class="btns-container">
+        <div class="key-action-container">
+            <button id="clearAll" class="key-action">AC</button>
+            <button id="backspace" class="key-action"><i class="fa-solid fa-delete-left"></i></button>
+            <button id="equal" class="key-action">=</button></i></button>
+        </div>
+        <button value="1" class="btnKeys not-metals"><h1>H </h1>hidrogênio</button>
+        <button value="4" class="btnKeys noble-gases"><h1>He </h1>hélio</button>
+        <button value="7" class="btnKeys alkali-metals"><h1>Li </h1>lítio</button>
+        <button value="9" class="btnKeys alkali-earth-metals"><h1>Be </h1>berílio</button>
+        <button value="11" class="btnKeys semimetals"><h1>B </h1>boro</button>
+        <button value="12" class="btnKeys not-metals"><h1>C </h1>carbono</button>
+        <button value="14" class="btnKeys not-metals"><h1>N </h1>nitrogênio</button>
+        <button value="16" class="btnKeys not-metals"><h1>O </h1>oxigênio</button>
+        <button value="19" class="btnKeys halogens"><h1>F </h1>flúor</button>
+        <button value="20" class="btnKeys noble-gases"><h1>Ne </h1>neônio</button>
+        <button value="23" class="btnKeys alkali-metals"><h1>Na </h1>sódio</button>
+        <button value="24" class="btnKeys alkali-earth-metals"><h1>Mg </h1>magnésio</button>
+        <button value="27" class="btnKeys other-metals"><h1>Al </h1>alumínio</button>
+        <button value="28" class="btnKeys semimetals"><h1>Si </h1>silício</button>
+        <button value="31" class="btnKeys not-metals"><h1>P </h1>fósforo</button>
+        <button value="32" class="btnKeys not-metals"><h1>S </h1>enxofre</button>
+        <button value="35" class="btnKeys halogens"><h1>Cl </h1>cloro</button>
+        <button value="40" class="btnKeys noble-gases"><h1>Ar </h1>argônio</button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+    </div>
+</section>    
+    <script>
+        const visor = document.getElementById("visor");
+        let valuesElements = [];
+        let res = 0;
+        function ValueKeys(valueKey, element, classElement) {
+            if (res != 0 || visor.innerHTML.indexOf("0") != -1){
+                res = 0;
+                clearArray();
+                valuesElements.push(valueKey);
+                visorElements(element, classElement);
+            } else {
+                valuesElements.push(valueKey);
+                visorElements(element, classElement);
+            };
+        };
+        function visorElements(element, classElement) {
+                visor.innerHTML += `<button class="${classElement}"><h1>${element[0]}</h1>${element[1]}</button> `;
+                visor.style.fontSize = "10px";
+        };
+        function equalRes() {
+            res = 0;
+            for (let i = 0; i < valuesElements.length; i++) {
+                res += valuesElements[i];
+            };
+            visor.innerHTML = res;
+            visor.style.fontSize = "60px";
+        }
+        function clearArray() {
+            while (0 < valuesElements.length) {
+                valuesElements.pop();
+            };
+            visor.innerHTML = "";
+        };
+        function deleteLastElement() {
+            if (res == 0) {
+                let lastIndex = visor.innerHTML.lastIndexOf("<button");
+                let elementNotDeleted = visor.innerHTML.slice(0 ,lastIndex);
+                visor.innerHTML = elementNotDeleted;
+                valuesElements.pop();
+            } else {
+                clearArray();
+            }
+        };
+        const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
+        const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
+        const equal = document.getElementById("equal").addEventListener("click", equalRes);
+        let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
+    </script>
+</body>
+    <script src="https://kit.fontawesome.com/65bfbf4940.js" crossorigin="anonymous"></script>
+</html>
