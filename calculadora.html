@@ -27,7 +27,7 @@
             padding: 10px;
             min-height: 180px;
             padding-right: 75px;
-            height: 580px;
+            height: 500px;
             overflow: auto;
         }
         .key-action-container {
@@ -44,28 +44,6 @@
             border: 2px solid black;
             border-radius: 15px;
             margin-bottom: 5px;
-        }
-        .check-mode-int {
-            font-size: 18px;
-            text-align: center;
-            width: 56px;
-            height: 95px;
-        }
-        .swith-int {
-            display: block;
-            border: 2px solid black;
-            border-radius: 20px;
-            width: 42px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 20px;
-            background-color: rgb(201, 201, 201);
-        }
-        .ball-swith {
-            background-color: rgb(20, 169, 255);
-            width: 20px;
-            height: 20px;
-            border-radius: 50px;
         }
         h1 {
             margin: 0;
@@ -135,7 +113,7 @@
             border-radius: 15px;
             margin-bottom: 5px;
         }
-        .matals-transition {
+        .metals-transition {
             width: 65px;
             height: 60px;
             font-size: 10px;   
@@ -156,16 +134,9 @@
             <button id="clearAll" class="key-action">AC</button>
             <button id="backspace" class="key-action"><i class="fa-solid fa-delete-left"></i></button>
             <button id="equal" class="key-action">=</button></i></button>
-            <div class="key-action check-mode-int">
-                <input type="checkbox" name="mode-int" id="mode-int" checked style="display:none;"><br>
-                <label for="mode-int" class="swith-int">
-                    <div class="ball-swith"></div>
-                </label>
-                Modo<br>inteiro
-            </div>
         </div>
         <button value="1" class="btnKeys not-metals"><h1>H </h1>hidrogênio<br> 1,008</button>
-        <button value="4" class="btnKeys noble-gases"><h1>He </h1>hélio</button>
+        <button value="4" class="btnKeys noble-gases"><h1>He </h1>hélio <br> </button>
         <button value="7" class="btnKeys alkali-metals"><h1>Li </h1>lítio</button>
         <button value="9" class="btnKeys alkali-earth-metals"><h1>Be </h1>berílio</button>
         <button value="11" class="btnKeys semimetals"><h1>B </h1>boro</button>
@@ -182,24 +153,65 @@
         <button value="32" class="btnKeys not-metals"><h1>S </h1>enxofre</button>
         <button value="35" class="btnKeys halogens"><h1>Cl </h1>cloro</button>
         <button value="40" class="btnKeys noble-gases"><h1>Ar </h1>argônio</button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
-        <button value="4" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="39" class="btnKeys alkali-metals"><h1>K </h1>potássio</button>
+        <button value="40" class="btnKeys alkali-earth-metals"><h1>Ca </h1>cálcio</button>
+        <button value="45" class="btnKeys metals-transition"><h1>Sc </h1>escândio</button>
+        <button value="48" class="btnKeys metals-transition"><h1>Ti </h1>titânio</button>
+        <button value="51" class="btnKeys metals-transition"><h1>V </h1>vanádio</button>
+        <button value="52" class="btnKeys metals-transition"><h1>Cr </h1>crômio</button>
+        <button value="55" class="btnKeys metals-transition"><h1>Mn </h1>manganês</button>
+        <button value="56" class="btnKeys metals-transition"><h1>Fe </h1>ferro</button>
+        <button value="59" class="btnKeys metals-transition"><h1>Co </h1>cobalto</button>
+        <button value="59" class="btnKeys metals-transition"><h1>Ni </h1>níquel</button>
+        <button value="64" class="btnKeys metals-transition"><h1>Cu </h1>cobre</button>
+        <button value="65" class="btnKeys metals-transition"><h1>Zn </h1>zinco</button>
+        <button value="70" class="btnKeys other-metals"><h1>Ga </h1>gálio</button>
+        <button value="73" class="btnKeys semimetals"><h1>Ge </h1>germânio</button>
+        <button value="75" class="btnKeys semimetals"><h1>As </h1>arsênio</button>
+        <button value="79" class="btnKeys not-metals"><h1>Se </h1>selênio</button>
+        <button value="80" class="btnKeys halogens"><h1>Br </h1>bromo</button>
+        <button value="84" class="btnKeys noble-gases"><h1>Kr </h1>criptônio</button>
+        <button value="85" class="btnKeys alkali-metals"><h1>Rb </h1>rubídio</button>
+        <button value="88" class="btnKeys alkali-earth-metals"><h1>Sr </h1>estrôncio</button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+        <button value="" class="btnKeys noble-gases"><h1> </h1></button>
+
+        
+        
     </div>
 </section>    
     <script>
