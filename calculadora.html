@@ -10,6 +10,7 @@
             margin: 0;
             padding: 10px;
             background-color: gray;
+            font-family: sans-serif;
         }
         .visor {
             padding: 5px;
@@ -18,7 +19,10 @@
             border-radius: 15px;
             background-color: rgb(209, 209, 209);
             overflow: auto;
-            text-align: end;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: end;
         }
         .btns-container {
             margin-top: 1rem;
@@ -27,7 +31,7 @@
             padding: 10px;
             min-height: 180px;
             padding-right: 75px;
-            height: 500px;
+            height: 455px;
             overflow: auto;
         }
         .key-action-container {
@@ -140,6 +144,20 @@
             border-radius: 15px;
             margin-bottom: 5px;
         }
+        .filters-content-button {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            margin: 10px 5px;
+            z-index: 1;
+        }
+        .filters-button {
+            font-size: 19px;
+            padding: 3px;
+            border: 2px solid black;
+            border-radius: 30px;
+        }
+
     </style>
 </head>
 <body>
@@ -272,7 +290,13 @@
         <button value="294" class="btnKeys halogens"><h1>Uus </h1>ununséptio<br> 294</button>
         <button value="294" class="btnKeys noble-gases"><h1>Uuo </h1>unúnóctio<br> 294</button>
     </div>
-</section>    
+</section>
+<div>
+    
+</div>
+<div class="filters-content-button">
+    <button class="filters-button" id="filtersButton"><i class="fa-solid fa-caret-up"></i> Filtros</button>
+</div>
     <script>
         const visor = document.getElementById("visor");
         let valuesElements = [];
@@ -289,8 +313,12 @@
             };
         };
         function visorElements(element, classElement) {
+            if (visor.innerHTML != "") {
+                visor.innerHTML += `<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i> <button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
+            } else {
                 visor.innerHTML += `<button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
-                visor.style.fontSize = "10px";
+            };
+            visor.style.fontSize = "15px";
         };
         function equalRes() {
             res = 0;
@@ -299,7 +327,7 @@
             };
             visor.innerHTML = res;
             visor.style.fontSize = "60px";
-        }
+        };
         function clearArray() {
             while (0 < valuesElements.length) {
                 valuesElements.pop();
@@ -308,16 +336,22 @@
         };
         function deleteLastElement() {
             if (res == 0) {
-                let lastIndex = visor.innerHTML.lastIndexOf("<button");
+                let lastIndex;
+                if (visor.innerHTML.indexOf('<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i>') > -1) {
+                    lastIndex = visor.innerHTML.lastIndexOf('<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i>');
+                } else {
+                    lastIndex = visor.innerHTML.lastIndexOf("<button");
+                };
                 let elementNotDeleted = visor.innerHTML.slice(0 ,lastIndex);
                 visor.innerHTML = elementNotDeleted;
                 valuesElements.pop();
             } else {
                 clearArray();
-            }
+            };
         };
         const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
         const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
+        const backspaceKey = document.addEventListener("keydown", e => {if (e.key == "Backspace") {deleteLastElement();};});
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
     </script>
