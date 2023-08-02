@@ -157,7 +157,13 @@
             border: 2px solid black;
             border-radius: 30px;
         }
-
+        .filters-content {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            margin: 10px 5px;
+            background-color: #ffff;
+        }
     </style>
 </head>
 <body>
@@ -291,8 +297,8 @@
         <button value="294" class="btnKeys noble-gases"><h1>Uuo </h1>unúnóctio<br> 294</button>
     </div>
 </section>
-<div>
-    
+<div id="filtersContent" class="filters-content">
+  <h1>Filtros estão em beta/h1>  
 </div>
 <div class="filters-content-button">
     <button class="filters-button" id="filtersButton"><i class="fa-solid fa-caret-up"></i> Filtros</button>
@@ -354,6 +360,7 @@
         const backspaceKey = document.addEventListener("keydown", e => {if (e.key == "Backspace") {deleteLastElement();};});
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
+        const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {let filtersContent = document.getElementById("filtersContent").style.display = "";});
     </script>
 </body>
     <script src="https://kit.fontawesome.com/65bfbf4940.js" crossorigin="anonymous"></script>
