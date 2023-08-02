@@ -364,7 +364,14 @@
         const backspaceKey = document.addEventListener("keydown", e => {if (e.key == "Backspace") {deleteLastElement();};});
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
-        const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {let filtersContent = document.getElementById("filtersContent").style.display = "block";});
+        let openFilter = false;
+        const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {if (openFilter == false) {
+            let filtersContent = document.getElementById("filtersContent").style.display = "block";
+            openFilter = true;
+        } else {
+            let filtersContent = document.getElementById("filtersContent").style.display = "none";
+            openFilter = false;
+        };);
     </script>
 </body>
     <script src="https://kit.fontawesome.com/65bfbf4940.js" crossorigin="anonymous"></script>
