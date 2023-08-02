@@ -162,7 +162,9 @@
             right: 0;
             bottom: 0;
             margin: 10px 5px;
+            padding-bottom: 30px;
             background-color: #ffff;
+            display: none;
         }
     </style>
 </head>
@@ -360,7 +362,7 @@
         const backspaceKey = document.addEventListener("keydown", e => {if (e.key == "Backspace") {deleteLastElement();};});
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
-        const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {let filtersContent = document.getElementById("filtersContent").style.display = "";});
+        const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {let filtersContent = document.getElementById("filtersContent").style.display = "block";});
     </script>
 </body>
     <script src="https://kit.fontawesome.com/65bfbf4940.js" crossorigin="anonymous"></script>
