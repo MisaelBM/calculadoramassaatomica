@@ -447,7 +447,10 @@
         const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
         const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
-        let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])));
+        let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => {ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])
+           const audio = new Audio('mouse-click-153941.mp3');
+            audio.play();                                                                                                     
+        }));
         let openFilter = false;
         const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {
             if (openFilter == false) {
@@ -481,7 +484,10 @@
                         searchView.innerHTML += `<button value="${eleValue}" class="${classEle} searchResult"><h1>${ele[0]} </h1>${ele[1]}<br> ${ele[2]}</button> `;
                     };
                 });
-                let searchResult = document.querySelectorAll(".searchResult").forEach(res => {res.addEventListener("click", () => ValueKeys(parseInt(res.value), res.textContent.split(" "), res.className.split(" ")[0]))});
+                let searchResult = document.querySelectorAll(".searchResult").forEach(res => {res.addEventListener("click", () => {ValueKeys(parseInt(res.value), res.textContent.split(" "), res.className.split(" ")[0])
+                     const audio = new Audio('mouse-click-153941.mp3');
+                     audio.play();                                                                                                             
+                })});
                 if (searchView.innerHTML == "") {
                     searchView.innerHTML = "<h1>Não encontrei nenhum elemento 😿</h1>";
                 };
