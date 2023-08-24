@@ -428,6 +428,8 @@
                 valuesElements.pop();
             };
             visor.innerHTML = "";
+            const audio = new Audio('click-21156.mp3');
+            audio.play();
         };
         function deleteLastElement() {
             if (res == 0) {
@@ -443,6 +445,8 @@
             } else {
                 clearArray();
             };
+            const audio = new Audio('click-21156.mp3');
+            audio.play();
         };
         const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
         const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
