@@ -452,7 +452,7 @@
         const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => {
-            const audio = new Audio('mouse-click-153941.mp3');
+            const audio = new Audio('click-21156.mp3');
             audio.play();
             ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])                                                                                                     
         }));
@@ -490,7 +490,7 @@
                     };
                 });
                 let searchResult = document.querySelectorAll(".searchResult").forEach(res => {res.addEventListener("click", () => {
-                    const audio = new Audio('mouse-click-153941.mp3');
+                    const audio = new Audio('click-21156.mp3');
                     audio.play();
                     ValueKeys(parseInt(res.value), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
                 })});
