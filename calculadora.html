@@ -491,6 +491,7 @@
                 });
                 let searchResult = document.querySelectorAll(".searchResult").forEach(res => {res.addEventListener("click", () => {
                     const audio = new Audio('click-21156.mp3');
+                    audio.volume = 0;
                     audio.play();
                     ValueKeys(parseInt(res.value), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
                 })});
