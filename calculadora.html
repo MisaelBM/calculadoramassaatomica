@@ -228,6 +228,15 @@
             top: -43px;
             color: red;
         }
+        .sound-button {
+            padding: 10px 20px 10px 20px;
+            border: 0px;
+            border-radius: 30px;
+            font-size: 20px;
+            background-color: rgb(34, 216, 125);
+            width: 90%;
+            margin-top: 20px;
+        }
         @media (max-width: 688px) {
             .search-input {
                 width: 190px;
@@ -373,6 +382,7 @@
 <section>
     <div id="filtersContent" class="filters-content">
         <button class="search-button" id="searchButton">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="sound-button" id="soundButton">Efeitos sonoros <span id="spanSound"><i class="fa-solid fa-volume-high"></i></span></button>
         <h2>Mais filtros em breve</h2>
     </div>
     <div class="filters-content-button">
@@ -393,6 +403,9 @@
     </div>
 </section>
     <script>
+        if (localStorage.sound == undefined) {
+            localStorage.sound = 1;
+        };
         const visor = document.getElementById("visor");
         let valuesElements = [];
         let res = 0;
@@ -420,6 +433,9 @@
             for (let i = 0; i < valuesElements.length; i++) {
                 res += valuesElements[i];
             };
+            const audio = new Audio('click-21156.mp3');
+            audio.volume = localStorage.sound;
+            audio.play();
             visor.innerHTML = res;
             visor.style.fontSize = "60px";
         };
@@ -429,6 +445,7 @@
             };
             visor.innerHTML = "";
             const audio = new Audio('click-21156.mp3');
+            audio.volume = localStorage.sound;
             audio.play();
         };
         function deleteLastElement() {
@@ -446,6 +463,7 @@
                 clearArray();
             };
             const audio = new Audio('click-21156.mp3');
+            audio.volume = localStorage.sound;
             audio.play();
         };
         const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
@@ -453,6 +471,7 @@
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => {
             const audio = new Audio('click-21156.mp3');
+            audio.volume = localStorage.sound;
             audio.play();
             ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])                                                                                                     
         }));
@@ -491,7 +510,7 @@
                 });
                 let searchResult = document.querySelectorAll(".searchResult").forEach(res => {res.addEventListener("click", () => {
                     const audio = new Audio('click-21156.mp3');
-                    audio.volume = 0;
+                    audio.volume = localStorage.sound;
                     audio.play();
                     ValueKeys(parseInt(res.value), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
                 })});
@@ -500,14 +519,27 @@
                 };
             };
         });
-        const searchExit = document.getElementById("searchExit").addEventListener("click", () => {
+        function clearSearch() {
             let btnsContainer = document.getElementById("btnsContainer").style.filter = "blur(0px)";
             let search = document.getElementById("search").style.display = "none";
-        });
+            let searchInput = document.querySelector("#searchInput").value = "";
+            searchView.innerHTML = "<h1>Faça uma pesquisa 🔍</h1>";
+        };
+        const searchExit = document.getElementById("searchExit").addEventListener("click", clearSearch);
         const searchExitEsc = document.addEventListener("keydown", e => {
             if (e.key == "Escape") {
-                let btnsContainer = document.getElementById("btnsContainer").style.filter = "blur(0px)";
-                let search = document.getElementById("search").style.display = "none";
+                clearSearch();
+            };
+        });
+        const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
+            if (localStorage.sound == 1) {
+                let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                localStorage.sound = 0;
+                let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(216, 34, 34)";
+            } else {
+                let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                localStorage.sound = 1;
+                let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(34, 216, 125)";
             };
         });
         let esteregg = 0;
