@@ -406,7 +406,7 @@
         if (localStorage.sound == undefined) {
             localStorage.sound = 1;
         };
-        if (localStorage.sound == 1) {
+        if (localStorage.sound == 0) {
             let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
             let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(216, 34, 34)";
         } else {
