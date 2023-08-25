@@ -406,6 +406,15 @@
         if (localStorage.sound == undefined) {
             localStorage.sound = 1;
         };
+        if (localStorage.sound == 1) {
+            let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            localStorage.sound = 0;
+            let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(216, 34, 34)";
+        } else {
+            let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            localStorage.sound = 1;
+            let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(34, 216, 125)";
+        };
         const visor = document.getElementById("visor");
         let valuesElements = [];
         let res = 0;
