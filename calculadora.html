@@ -257,6 +257,8 @@
         <div class="key-action-container">
             <button id="clearAll" class="key-action">AC</button>
             <button id="backspace" class="key-action"><i class="fa-solid fa-delete-left"></i></button>
+            <button id="plus" class="key-action"><i class="fa-solid fa-plus"></i></button>
+            <button id="minus" class="key-action"><i class="fa-solid fa-minus"></i></button>
             <button id="equal" class="key-action">=</button></i></button>
         </div>
         <button value="1" class="btnKeys not-metals"><h1>H </h1>hidrogênio<br> 1,008</button>
@@ -415,66 +417,86 @@
         };
         const visor = document.getElementById("visor");
         let valuesElements = [];
+        let valuesSigns = [];
         let res = 0;
         function ValueKeys(valueKey, element, classElement) {
-            if (res != 0 || visor.innerHTML[0] == "0"){
+            if (visor.innerHTML == '<div style="font-size: 60px;">0</div>'){
                 res = 0;
                 clearArray();
                 valuesElements.push(valueKey);
                 visorElements(element, classElement);
             } else {
-                valuesElements.push(valueKey);
-                visorElements(element, classElement);
+                if (valuesElements.length == valuesSigns.length) {
+                    valuesElements.push(valueKey);
+                    visorElements(element, classElement);
+                };
             };
         };
         function visorElements(element, classElement) {
-            if (visor.innerHTML != "") {
-                visor.innerHTML += `<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i> <button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
-            } else {
-                visor.innerHTML += `<button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
-            };
+            visor.innerHTML += `<button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
             visor.style.fontSize = "15px";
         };
         function equalRes() {
             res = 0;
             for (let i = 0; i < valuesElements.length; i++) {
-                res += valuesElements[i];
+                if (i == 0 || valuesSigns[i - 1] == '+') {
+                    res += valuesElements[i];
+                } else {
+                    res -= valuesElements[i];
+                };
             };
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
-            visor.innerHTML = res;
-            visor.style.fontSize = "60px";
+            visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
         };
         function clearArray() {
-            while (0 < valuesElements.length) {
+            while (0 < valuesElements.length || 0 < valuesSigns.length) {
                 valuesElements.pop();
+                valuesSigns.pop();
             };
             visor.innerHTML = "";
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
         };
-        function deleteLastElement() {
-            if (res == 0) {
-                let lastIndex;
-                if (visor.innerHTML.indexOf('<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i>') > -1) {
-                    lastIndex = visor.innerHTML.lastIndexOf('<i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i>');
-                } else {
-                    lastIndex = visor.innerHTML.lastIndexOf("<button");
-                };
+        function deleteLastElement() {    
+            let lastIndex;
+            if (visor.innerHTML.lastIndexOf('i>') > visor.innerHTML.lastIndexOf('n>')) {
+                lastIndex = visor.innerHTML.lastIndexOf('<i class="fa-solid');
+                valuesSigns.pop();
+            } else {
+                lastIndex = visor.innerHTML.lastIndexOf("<button");
+                valuesElements.pop();
+            };
+            if (visor.innerHTML.indexOf('i>') == -1 && visor.innerHTML.indexOf('n>') == -1) {
+                clearArray();
+            } else {
                 let elementNotDeleted = visor.innerHTML.slice(0 ,lastIndex);
                 visor.innerHTML = elementNotDeleted;
-                valuesElements.pop();
-            } else {
-                clearArray();
             };
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
         };
+        function addSignal(signal) {
+            if (valuesElements.length > valuesSigns.length) {
+                valuesSigns.push(signal);
+                if (signal == "+") {
+                    visor.innerHTML += ' <i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i> ';
+                } else {
+                    visor.innerHTML += ' <i class="fa-solid fa-minus fa-xl" style="color: #000000;"></i> ';
+                };
+            };
+        };
         const clearAll = document.getElementById("clearAll").addEventListener("click", clearArray);
         const backspace = document.getElementById("backspace").addEventListener("click", deleteLastElement);
+        const plus = document.getElementById("plus").addEventListener("click", () => {
+            addSignal("+");
+        });
+        const minus = document.getElementById("minus").addEventListener("click", () => {
+            addSignal("-");
+        });
         const equal = document.getElementById("equal").addEventListener("click", equalRes);
         let btnKeys = document.querySelectorAll(".btnKeys").forEach(keys => keys.addEventListener("click", e => {
             const audio = new Audio('click-21156.mp3');
