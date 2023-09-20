@@ -237,6 +237,15 @@
             width: 90%;
             margin-top: 20px;
         }
+        .precision-mode-button {
+            padding: 10px 20px 10px 20px;
+            border: 0px;
+            border-radius: 30px;
+            font-size: 20px;
+            background-color: rgb(216, 34, 34);
+            width: 90%;
+            margin-top: 20px;
+        }
         @media (max-width: 688px) {
             .search-input {
                 width: 190px;
@@ -384,6 +393,7 @@
 <section>
     <div id="filtersContent" class="filters-content">
         <button class="search-button" id="searchButton">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="precision-mode-button" id="precisionModeButton">Modo precisão: off</button>
         <button class="sound-button" id="soundButton">Efeitos sonoros <span id="spanSound"><i class="fa-solid fa-volume-high"></i></span></button>
         <h2>Mais filtros em breve</h2>
     </div>
@@ -558,6 +568,16 @@
         const searchExitEsc = document.addEventListener("keydown", e => {
             if (e.key == "Escape") {
                 clearSearch();
+            };
+        });
+        let valuePrecisionMode = false;
+        const precisionModeButton = document.getElementById("precisionModeButton").addEventListener("click", () => {
+            if (valuePrecisionMode == false) {
+                
+                valuePrecisionMode = true;
+            } else {
+
+                valuePrecisionMode = false;
             };
         });
         const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
