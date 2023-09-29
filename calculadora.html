@@ -393,7 +393,7 @@
 <section>
     <div id="filtersContent" class="filters-content">
         <button class="search-button" id="searchButton">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="precision-mode-button" id="precisionModeButton">Modo precisão: off</button>
+        <button class="precision-mode-button" id="precisionModeButton">Modo precisão: Off</button>
         <button class="sound-button" id="soundButton">Efeitos sonoros <span id="spanSound"><i class="fa-solid fa-volume-high"></i></span></button>
         <h2>Mais filtros em breve</h2>
     </div>
@@ -512,7 +512,7 @@
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
-            ValueKeys(parseInt(keys.value), keys.textContent.split(" "), keys.className.split(" ")[1])                                                                                                     
+            ValueKeys(parseFloat(ValueElementFunction(keys.value, keys.textContent.split(" "))), keys.textContent.split(" "), keys.className.split(" ")[1])                                                                                                     
         }));
         let openFilter = false;
         const filtersButton = document.getElementById("filtersButton").addEventListener("click", () => {
@@ -573,13 +573,23 @@
         let valuePrecisionMode = false;
         const precisionModeButton = document.getElementById("precisionModeButton").addEventListener("click", () => {
             if (valuePrecisionMode == false) {
-                
+                document.getElementById("precisionModeButton").style.backgroundColor = "rgb(34, 216, 125)";
+                document.getElementById("precisionModeButton").innerHTML = "Mode precisão: On"
                 valuePrecisionMode = true;
             } else {
-
+                document.getElementById("precisionModeButton").style.backgroundColor = "rgb(216, 34, 34)";
+                document.getElementById("precisionModeButton").innerHTML = "Mode precisão: Off"
                 valuePrecisionMode = false;
             };
         });
+        function ValueElementFunction(ValueInt, ValueFloat) {
+            if (valuePrecisionMode == false) {
+                return ValueInt;
+            } else {
+                console.log(ValueFloat)
+                return ValueFloat
+            };
+        };
         const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
             if (localStorage.sound == 1) {
                 let spanSound = document.getElementById("spanSound").innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
