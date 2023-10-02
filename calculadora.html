@@ -458,7 +458,7 @@
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
-            visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
+            visor.innerHTML = `<div style="font-size: 60px;">${res.replace(".", ",")}</div>`;
         };
         function clearArray() {
             while (0 < valuesElements.length || 0 < valuesSigns.length) {
