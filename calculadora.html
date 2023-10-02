@@ -586,8 +586,8 @@
             if (valuePrecisionMode == false) {
                 return ValueInt;
             } else {
-                console.log(ValueFloat)
-                return ValueFloat
+                ValueFloat = ValueFloat[2].replace(",", ".");
+                return parseFloat(ValueFloat);
             };
         };
         const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
