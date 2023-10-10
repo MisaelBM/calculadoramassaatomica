@@ -453,10 +453,12 @@
                 } else {
                     res -= valuesElements[i];
                 };
+                console.log(res, valuesElements[i])
             };
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
+            console.log(res)
             visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
         };
         function clearArray() {
