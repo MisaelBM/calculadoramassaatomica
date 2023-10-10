@@ -457,18 +457,6 @@
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
-            let strRes = res.toString();
-            console.log(strRes)
-            let indexRes = strRes.indexOf(".");
-            console.log(indexRes)
-            let removeStr = strRes.slice(indexRes + 1);
-            console.log(removeStr)
-            if (removeStr.length > 4) {
-                removeStr = removeStr.slice(0, 3);
-                let strRes = strRes.slice(0, indexRes);
-                strRes = strRes + removeStr;
-                res = parseFloat(strRes);
-            };
             visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
         };
         function clearArray() {
