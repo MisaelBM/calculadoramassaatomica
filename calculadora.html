@@ -457,6 +457,15 @@
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
+            let strRes = res.ToString();
+            let indexRes = strRes.indexOf(".");
+            let removeStr = strRes.slice(indexRes + 1);
+            if (removeStr.length > 4) {
+                removeStr = removeStr.slice(0, 3);
+                let strRes = strRes.slice(0, indexRes);
+                strRes = strRes + removeStr;
+                res = parseFloat(strRes);
+            };
             visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
         };
         function clearArray() {
