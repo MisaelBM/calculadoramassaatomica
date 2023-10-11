@@ -445,6 +445,7 @@
             visor.innerHTML += `<button class="${classElement}"><h1>${element[0]}</h1>${element[1]}<br>${element[2]}</button> `;
             visor.style.fontSize = "15px";
         };
+        
         function equalRes() {
             res = 0;
             for (let i = 0; i < valuesElements.length; i++) {
@@ -453,12 +454,19 @@
                 } else {
                     res -= valuesElements[i];
                 };
-                console.log(res, valuesElements[i])
             };
             const audio = new Audio('click-21156.mp3');
             audio.volume = localStorage.sound;
             audio.play();
-            console.log(res)
+            let resStr = res.toString();
+            let indexRes = resStr.indexOf('.');
+            let resRemove = resStr.slice(indexRes + 1);
+            if (resRemove.length > 4) {
+                resRemove = resRemove.slice(0, 4);
+                resStr = resStr.slice(0, indexRes + 1);
+                resStr = resStr + resRemove;
+                res = parseFloat(resStr);
+            };
             visor.innerHTML = `<div style="font-size: 60px;">${res}</div>`;
         };
         function clearArray() {
