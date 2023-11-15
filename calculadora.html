@@ -39,6 +39,7 @@
             position: absolute;
             right: 0;
             margin-right: 20px;
+            z-index: 2px;
         }
         .key-action {
             width: 60px;
@@ -186,11 +187,12 @@
         }
         .search {
             width: 100vw;
+            height: 100vh;
             display: none;
             justify-content: center;
             align-items: center;
             position: fixed;
-            top: 160px;
+            top: 0px;
             margin-left: auto;
             margin-right: auto;
             flex-direction: column;
@@ -205,10 +207,9 @@
             text-align: center;
             overflow: auto;
             max-height: 300px;
-            border-radius: 20px;
         }
         .search-input {
-            width: 550px;
+            width: 590px;
             height: 40px;
             border: 2px solid black;
             font-size: 18px;
@@ -222,11 +223,13 @@
             width: fit-content;
             display: flex;
             justify-content: end;
+            flex-direction: column;
         }
         .search-exit {
-            position: absolute;
-            top: -43px;
             color: red;
+            font-size: 35px;
+            width: fit-content;
+            height: fit-content;
         }
         .sound-button {
             padding: 10px 20px 10px 20px;
@@ -248,7 +251,7 @@
         }
         @media (max-width: 688px) {
             .search-input {
-                width: 190px;
+                width: 240px;
             }
             .search-view {
                 width: 250px;
@@ -402,7 +405,7 @@
     <div id="search" class="search">
         <div class="top-search">
             <div id="searchExit" class="search-exit">
-                <h2><i class="fa-solid fa-xmark"></i></h2>
+                <i class="fa-solid fa-xmark"></i>
             </div>
             <div id="searchView" class="search-view">
                 <h1>Faça uma pesquisa 🔍</h1>
