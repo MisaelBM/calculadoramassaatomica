@@ -640,7 +640,7 @@
             } else {
                 ValueFloat = ValueFloat[2].replace(",", ".");
                 console.log(ValueFloat)
-                return parseFloat(ValueFloat);
+                return parseFloat(ValueFloat), console.log(ValueFloat);
             };
         };
         const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
