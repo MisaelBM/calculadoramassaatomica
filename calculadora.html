@@ -603,7 +603,7 @@
                     const audio = new Audio('click-21156.mp3');
                     audio.volume = localStorage.sound;
                     audio.play();
-                    ValueKeys(parseInt(ValueElementFunction(res.value, res.textContent.split(" "))), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
+                    ValueKeys(parseFloat(ValueElementFunction(res.value, res.textContent.split(" "))), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
                 })});
                 if (searchView.innerHTML == "") {
                     searchView.innerHTML = "<h1>Não encontrei nenhum elemento 😿</h1>";
