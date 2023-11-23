@@ -639,7 +639,7 @@
         function ValueElementFunction(ValueInt, ValueFloat) {
             if (valuePrecisionMode == false) {
                 console.log(ValueInt)
-                return ValueInt;
+                return parseInt(ValueInt);
             } else {
                 ValueFloat = ValueFloat[2].replace(",", ".");
                 console.log(ValueFloat)
