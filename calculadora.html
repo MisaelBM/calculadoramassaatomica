@@ -603,6 +603,7 @@
                     const audio = new Audio('click-21156.mp3');
                     audio.volume = localStorage.sound;
                     audio.play();
+                    console.log(ValueElementFunction(res.value, res.textContent.split(" ")))
                     ValueKeys(ValueElementFunction(res.value, res.textContent.split(" ")), res.textContent.split(" "), res.className.split(" ")[0])                                                                                                                  
                 })});
                 if (searchView.innerHTML == "") {
@@ -640,7 +641,7 @@
             } else {
                 ValueFloat = ValueFloat[2].replace(",", ".");
                 console.log(ValueFloat)
-                return parseFloat(ValueFloat), console.log(ValueFloat);
+                return parseFloat(ValueFloat);
             };
         };
         const soundButton = document.getElementById("soundButton").addEventListener("click", () => {
