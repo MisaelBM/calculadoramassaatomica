@@ -82,6 +82,7 @@ function clearArray() {
     while (0 < valuesElements.length || 0 < valuesSigns.length) {
         valuesElements.pop();
         valuesSigns.pop();
+        elevationElements.pop();
     };
     visor.innerHTML = "";
     const audio = new Audio('click-21156.mp3');
