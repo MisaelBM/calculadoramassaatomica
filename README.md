@@ -1,3 +1,3 @@
 <h1>Projeto ganhador do 1º Lugar no CICTED XII ENIC.JR na Unitau</h1>
-<img scr="baea5708-508d-43c5-a273-02bfac1a14c5.jpg"></img>
+<img src="baea5708-508d-43c5-a273-02bfac1a14c5.jpg"></img>
 <a href="https://misaelbm.github.io/calculadoramassaatomica/calculadora.html">Clique aqui </a> 
