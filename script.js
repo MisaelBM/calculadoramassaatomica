@@ -224,16 +224,4 @@ const soundButton = document.getElementById("soundButton").addEventListener("cli
         let styleSoundButton = document.getElementById("soundButton").style.backgroundColor = "rgb(34, 216, 125)";
     };
 });
-let esteregg = 0;
-document.addEventListener("keyup", e => {
-    if (e.key == "ScrollLock") {
-        ++esteregg;
-        console.log(esteregg);
-        if (esteregg > 15 && esteregg < 100) {
-            console.log("Rocket league é melhor que free fire 🚗👍");
-        } else if (esteregg > 99) {
-            console.log("Vai arrumar oq fazer 😡😡😡😡😡😡😡😡😡😡😡😡");
-        };
-    };
-});
 //By: Misael Bonifácio Morgado 
