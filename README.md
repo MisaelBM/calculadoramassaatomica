@@ -1,6 +1,6 @@
 **Calculadora de Massa Atômica**
 
-<a href="https://misaelbm.github.io/calculadoramassaatomica/">Veja o projeto aqui</a>
+<a href="https://misaelbm.github.io/calculadoramassaatomica/calculadora.html">Veja o projeto aqui</a>
 
 __Descrição do Projeto__
 
